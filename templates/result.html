@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Result</h1>
+        {% if prediction %}
+        <h2>Prediction:</h2>
+        <p>The Action Code by the Human: {{ prediction }}</p>
+        {% endif %}
+        <h2>Classification Metrics:</h2>
+        <p>F1 Score: {{ f1_score }}</p>
+        <p>Precision: {{ precision }}</p>
+        <p>Accuracy: {{ accuracy }}</p>
+    </div>
+</body>
+</html>

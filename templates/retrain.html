@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retrain Model</title>
+</head>
+<body>
+    <h1>Retrain Model</h1>
+
+    <form method="POST" action="/retrain" enctype="multipart/form-data">
+        <label for="new_training_data">Upload New Training Data (CSV file):</label>
+        <input type="file" id="new_training_data" name="new_training_data" accept=".csv" required>
+        <br><br>
+        <input type="submit" value="Retrain Model">
+    </form>
+
+    <p>Note: Uploading new training data will retrain the model.</p>
+</body>
+</html>

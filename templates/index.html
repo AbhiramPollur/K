@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Human Action Prediction</title>
+<link rel="stylesheet" type="text/css" href="\static\styles.css">
+</head>
+<body>
+<div class="container">
+<h1>Human Action Prediction</h1>
+<form method="POST" action="/predict" enctype="multipart/form-data">
+<h2>Predict from CSV</h2>
+<input type="file" name="csv_file">
+<input type="submit" value="Predict from CSV" class="btn">
+</form>
+<form method="POST" action="/predict">
+<h2>Predict Single Row</h2>
+<label for="timestamp">timestamp:</label>
+<input type="text" name="timestamp" id="timestamp" placeholder="timestamp">
+<label for="thigh_x">thigh_x:</label>
+<input type="text" name="thigh_x" id="thigh_x" placeholder="thigh_x">
+<label for="thigh_y">thigh_y:</label>
+<input type="text" name="thigh_y" id="thigh_y" placeholder="thigh_y">
+<label for="thigh_z">thigh_z:</label>
+<input type="text" name="thigh_z" id="thigh_z" placeholder="thigh_z">
+<label for="back_x">back_x:</label>
+<input type="text" name="back_x" id="back_x" placeholder="back_x">
+<label for="back_y">back_y:</label>
+<input type="text" name="back_y" id="back_y" placeholder="back_y">
+<label for="back_z">back_z:</label>
+<input type="text" name="back_z" id="back_z" placeholder="back_z">
+<input type="submit" value="Predict Single Row" class="btn">
+</form>
+</div>
+</body>
+</html>
