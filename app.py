@@ -46,7 +46,7 @@ def predict():
             stream.seek(0)
             result = transform(stream.read())
             df = pd.read_csv(StringIO(result))
-            x = df.drop('label', axis=1)
+            x = df[['timestamp', 'back_x', 'back_y', 'back_z', 'thigh_x', 'thigh_y', 'thigh_z']]
             x['timestamp'] = pd.to_datetime(x['timestamp']).astype('int64') // 10**9
             y = df[['label']]
             predictions = knn_classifier.predict(x)
