@@ -1,7 +1,9 @@
 import pandas as pd
 import numpy as np
 import warnings
-warnings.filterwarnings('ignore')
+from sklearn.exceptions import DataConvertionWarning
+warnings.filterwarnings(action='ignore', category=DataConvertionWarning)
+
 pd.set_option('display.float_format', lambda x: '%.5f' % x)
 
 from sklearn.model_selection import train_test_split
