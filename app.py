@@ -8,6 +8,8 @@ import joblib
 import pandas as pd
 from flask import Flask, render_template, request, redirect, url_for
 from sklearn.metrics import classification_report
+import time
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -60,7 +62,12 @@ def predict():
             return render_template('result.html', prediction=knc_cr)
 
     else:
-        time = int(request.form['timestamp'])
+        timestamp = request.form['time']
+        if timestamp:
+            input_datetime = datetime.strptime(timestamp, '%Y-%m-%dT%H:%M')
+            unix_timestamp = int(input_datetime.timestamp())
+        else:
+            unix_timestamp = int(time.time())
         thighx = float(request.form['thigh_x'])
         thighy = float(request.form['thigh_y'])
         thighz = float(request.form['thigh_z'])
@@ -68,7 +75,7 @@ def predict():
         backy = float(request.form['back_y'])
         backz = float(request.form['back_z'])
 
-        input_data = [[time, thighx, thighy, thighz, backx, backy, backz]]
+        input_data = [[unix_timestamp, thighx, thighy, thighz, backx, backy, backz]]
         prediction = knn_classifier.predict(input_data)
         if prediction == 1:
             return render_template('result.html', prediction='Walking')
